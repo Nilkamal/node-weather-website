@@ -8,7 +8,7 @@ const forecast = (latitute, longitude, callback) => {
             callback('Unable to find weather data for provided coordinates. Please try again')
         } else {
             const { currently } = data;
-            callback(undefined,`${data.daily.data[0].summary} It is currently ${currently.temperature} degree out. There is ${currently.precipProbability}% chances of rain`)
+            callback(undefined,`${data.daily.data[0].summary} It is currently ${currently.temperature} degree out. There is ${currently.precipProbability}% chances of rain. High of ${data.daily.data[0].temperatureHigh} and low of ${data.daily.data[0].temperatureLow}`)
         }
     }).catch(error => {
         callback('Error while connecting weather service')
